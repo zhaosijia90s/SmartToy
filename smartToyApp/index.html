@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+</head>
+<body>
+
+    <nav class="mui-bar mui-bar-tab">
+        <a class="mui-tab-item mui-active">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item">
+            <span class="mui-icon mui-icon-phone"></span>
+            <span class="mui-tab-label">电话</span>
+        </a>
+        <a class="mui-tab-item">
+            <span class="mui-icon mui-icon-email"></span>
+            <span class="mui-tab-label">邮件</span>
+        </a>
+        <a class="mui-tab-item">
+            <span class="mui-icon mui-icon mui-icon-person"></span>
+            <span class="mui-tab-label" id="my_page">我的</span>
+        </a>
+    </nav>
+</body>
+<SCRIPT SRC="JS/MUI.JS" TYPE="TEXT/JAVASCRIPT" CHARSET="UTF-8"></SCRIPT>
+    <SCRIPT TYPE="TEXT/JAVASCRIPT">
+    
+    mui.init({
+    subpages:[{
+      url:'main.html',
+      id:'main.html',
+      styles:{
+        top:'0px',//mui标题栏默认高度为45px；
+        bottom:'50px'//默认为0px，可不定义；
+      }
+    }]
+  });
+  
+  document.getElementById('my_page').addEventListener('tap',function () {
+		mui.openWindow({
+			url:'login.html',
+			id:'login',
+			style:{
+				top:'0px',//mui标题栏默认高度为45px；
+        		bottom:'50px'//默认为0px，可不定义；
+			}
+		})
+  })
+  
+    </SCRIPT>
+</html>

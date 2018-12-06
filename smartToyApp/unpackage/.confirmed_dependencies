@@ -1,0 +1,21 @@
+{
+	"index.html": {
+		"resources": [
+			"main.html"
+		],
+		"refer": [
+			"main.html",
+			"login.html"
+		]
+	},
+	"main.html": {
+		"refer": [
+			"play_page.html"
+		]
+	},
+	"login.html": {
+		"refer": [
+			"regist.html"
+		]
+	}
+}

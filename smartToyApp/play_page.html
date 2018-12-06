@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title" id="music_title">***正在播放</h1>
+    </header>
+    
+    <div class="mui-content">
+        <div class="mui-row" style="text-align:center;margin-top: 10px;">
+            <img src="image/hh.png"/ id="img_name" style="border-radius: 100%;width: 250px;height: 250px;">
+        </div>
+        
+        <button type="button" class="mui-btn mui-btn-warning mui-btn-block" id="pause">暂停</button>
+        <button type="button" class="mui-btn mui-btn-red mui-btn-block" id="stop">停止</button>
+        <button type="button" class="mui-btn mui-btn-green mui-btn-block" id="resume">继续</button>
+        <button type="button" class="mui-btn mui-btn-blue mui-btn-block" id="seekTo">发送</button>
+        
+    </div>
+    
+</body>
+<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init()
+    var datas = null;
+    var music = null;
+    mui.plusReady(function () {
+        datas = plus.webview.currentWebview()
+        console.log(datas)
+        document.getElementById('music_title').innerText = datas.title + ' 正在播放'
+        document.getElementById('img_name').src = window.server_img + datas.cover
+        music = plus.audio.createPlayer( window.server_music + datas.music )
+        music.play()
+        
+    })
+    
+    document.getElementById('pause').addEventListener('tap',function(){
+    	music.pause()
+    });
+    
+        document.getElementById('stop').addEventListener('tap',function(){
+    	music.stop()
+    });
+        
+        document.getElementById('resume').addEventListener('tap',function(){
+    	music.resume()
+    });
+        
+        document.getElementById('seekTo').addEventListener('tap',function(){
+    	music.seekTo()
+    });
+    </script>
+</html>
+
+
